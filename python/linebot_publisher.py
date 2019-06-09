@@ -8,29 +8,29 @@ class LineBotPublisher:
   """
   LINEBot Publisher.
   """
-  # URL Endpoint
-  ENDPOINT = 'https://api.line.me/v2/bot/message/push'
-
   # Access Token
   ACCESS_TOKEN = os.environ.get('LINE_BOT_ACCESS_TOKEN')
 
-  def __init__(self, endpoint=ENDPOINT, access_token=ACCESS_TOKEN):
+  # URL Endpoint
+  ENDPOINT = 'https://api.line.me/v2/bot/message/push'
+
+  def __init__(self, access_token=ACCESS_TOKEN, endpoint=ENDPOINT):
     """
     Constructor.
 
     Parameters
     ----------
+    access_token : string
+        Access token of LINE Messaging API.
+
     endpoint : string
         URL Endpoint to LINE Messaging API.
         Default is https://api.line.me/v2/bot/message/push
-
-    access_token : string
-        Access token of LINE Messaging API.
     """
-    self._die_if_empty([endpoint, access_token])
+    self._die_if_empty([access_token, endpoint])
 
-    self.endpoint = endpoint
     self.access_token = access_token
+    self.endpoint = endpoint
 
   def post_text(self, to_id, text, notifies=True):
     """
