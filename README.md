@@ -19,6 +19,8 @@ publisher.post_text(
 )
 ```
 
+![Post Image](https://raw.githubusercontent.com/tsubasaogawa/linebot-publisher-layer/images/line_image.png)
+
 ## Methods
 
 ### post_text(to_id, text, notifies=True)
